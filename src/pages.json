@@ -3,7 +3,9 @@
     "autoscan": true,
     "custom": {
       // uni-ui 规则如下配置  // [!code ++]
-      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue" // [!code ++]
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue", // [!code ++]
+      // 以Xtx开头的组件, 在src\components文件夹中查找引入(需要重启服务器)
+      "^Xtx(.*)": "@/components/Xtx$1.vue"
     }
   },
   "pages": [
