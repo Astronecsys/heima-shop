@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { HotItem } from '@/types/home';
+import type { HotItem } from '@/types/home'
 
 //
 defineProps<{
-    list:HotItem[]
+  list: HotItem[]
 }>()
 </script>
 
@@ -12,10 +12,10 @@ defineProps<{
   <view class="panel hot">
     <view class="item" v-for="item in list" :key="item.id">
       <view class="title">
-        <text class="title-text">{{item.title}}</text>
-        <text class="title-desc">{{item.alt}}</text>
+        <text class="title-text">{{ item.title }}</text>
+        <text class="title-desc">{{ item.alt }}</text>
       </view>
-      <navigator hover-class="none" url="/pages/hot/hot" class="cards">
+      <navigator hover-class="none" :url="`/pages/hot/hot?type=${item.type}`" class="cards">
         <image
           v-for="src in item.pictures"
           :key="src"
