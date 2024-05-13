@@ -6,8 +6,8 @@ import type { BannerItem, CategoryItem, HotItem } from '@/types/home'
 import CustomNavbar from './componets/CustomNavbar.vue'
 import CategoryPanel from './componets/CategoryPanel.vue'
 import HotPanel from './componets/HotPanel.vue'
-import type { XtxGuessInstance } from '@/types/components'
 import PageSkeleton from './componets/PageSkeleton.vue'
+import { useGuessList } from '@/composables'
 
 //获取轮播图数据
 const bannerList = ref<BannerItem[]>([])
@@ -40,12 +40,8 @@ onLoad(async () => {
   isLoading.value = false
 })
 
-// 获取猜你喜欢组件实例
-const guessRef = ref<XtxGuessInstance>()
-// 滚动触底
-const onScrolltolower = () => {
-  guessRef.value?.getMore()
-}
+// 猜你喜欢触底增量
+const { guessRef, onScrolltolower } = useGuessList()
 
 // 自定义下拉刷新被触发
 const isTrigger = ref(false)
