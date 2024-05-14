@@ -74,9 +74,9 @@ const onSubmit = async () => {
     gender,
     birthday,
     profession,
-    provinceCode: fullLocationCode[0],
-    cityCode: fullLocationCode[1],
-    countyCode:fullLocationCode[2],
+    provinceCode: fullLocationCode[0]||undefined,
+    cityCode: fullLocationCode[1]||undefined,
+    countyCode:fullLocationCode[2]||undefined,
   })
   memberStore.profile!.nickname = res.result.nickname
   uni.showToast({ icon: 'success', title: '保存成功' })
