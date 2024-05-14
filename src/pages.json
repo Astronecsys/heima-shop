@@ -101,7 +101,7 @@
 			"root": "pagesMember",
 			"pages": [
 				{
-					"path": "setting/setting",
+					"path": "settings/settings",
 					"style": {
 						"navigationBarTitleText": "设置"
 					}

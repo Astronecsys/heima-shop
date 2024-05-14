@@ -1,5 +1,22 @@
 <script setup lang="ts">
-//
+import { useMemberStore } from '@/stores';
+
+const memberStore = useMemberStore()
+// 退出登录
+const onLogout = () => {
+  // 模态弹窗
+  uni.showModal({
+    content: '是否退出登录？',
+    success: (res) => {
+      if (res.confirm) {
+        // 清理用户信息
+        memberStore.clearProfile()
+        // 返回上一页
+        uni.navigateBack()
+      }
+    },
+  })
+}
 </script>
 
 <template>
@@ -22,7 +39,7 @@
     </view>
     <!-- 操作按钮 -->
     <view class="action">
-      <view class="button">退出登录</view>
+      <view @tap="onLogout" class="button">退出登录</view>
     </view>
   </view>
 </template>
